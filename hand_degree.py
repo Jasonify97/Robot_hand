@@ -9,14 +9,12 @@ mp_hands = mp.solutions.hands
 mp_drawing_styles = mp.solutions.drawing_styles
 
 # Input Webcam
-cap = cv2.VideoCapture(0)
-# cap2 = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(1)
 
 
 with mp_hands.Hands(
     # 인식할 손 개수 
     max_num_hands=1,
-    
     min_detection_confidence=0.5,
     min_tracking_confidence=0.5) as hands:
 
@@ -182,8 +180,6 @@ with mp_hands.Hands(
         joint_degree(hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_PIP],
                     hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_DIP],
                     hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_TIP]) # joint11
-
-        
 
         image = np.array(image)
 
